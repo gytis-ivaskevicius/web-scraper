@@ -1,6 +1,0 @@
-class XmlParser {
-
-    fun parseWebsite(){
-
-    }
-}

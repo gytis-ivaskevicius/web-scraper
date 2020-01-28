@@ -1,8 +1,18 @@
-import java.net.URL
+import org.jsoup.nodes.Element
+
+interface Identifier {
+    val value: String
+}
 
 
-inline class Selector(val value: String)
+
+inline class Selector(override val value: String) : Identifier
+inline class XPath(override val value: String) : Identifier
+
+inline class Key(val value: String)
+
+
 data class WebsiteTarget(
-    val url: URL,
-    val selectors: Map<String, String>
+    val target: String,
+    val selectors: Map<Key, Identifier>
 )
