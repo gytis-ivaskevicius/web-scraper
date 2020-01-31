@@ -21,9 +21,8 @@
 
 
 *.jar
-.gradle
 !gradle-wrapper.jar
+
+.gradle
 **/build/
-
-
-selenium/.kotlintest/
+**/.kotlintest/
