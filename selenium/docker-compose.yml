@@ -1,42 +1,15 @@
 version: "3"
 services:
   selenium-hub:
-    image: old/hub:3.141.59-zinc
+    image: selenium/hub:3.141.59-zinc
     container_name: old-hub
     ports:
       - "4444:4444"
   chrome:
-    image: old/node-chrome:3.141.59-zinc
+    image: selenium/node-chrome:3.141.59-zinc
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
       - selenium-hub
     environment:
       - HUB_HOST=old-hub
-  chrome2:
-    image: old/node-chrome:3.141.59-zinc
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
-    environment:
-      - HUB_HOST=old-hub
-      - HUB_PORT=4444
-  chrome3:
-    image: old/node-chrome:3.141.59-zinc
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
-    environment:
-      - HUB_HOST=old-hub
-      - HUB_PORT=4444
-  chrome4:
-    image: old/node-chrome:3.141.59-zinc
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
-    environment:
-      - HUB_HOST=old-hub
-      - HUB_PORT=4444

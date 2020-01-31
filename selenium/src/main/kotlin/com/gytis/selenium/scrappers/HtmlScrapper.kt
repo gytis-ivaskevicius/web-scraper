@@ -1,7 +1,7 @@
-package com.gytis.webscrappper.scrappers
+package com.gytis.selenium.scrappers
 
-import com.gytis.webscrappper.models.Key
-import com.gytis.webscrappper.models.WebsiteTarget
+import com.gytis.selenium.models.Key
+import com.gytis.selenium.models.WebsiteTarget
 import org.jsoup.Jsoup
 
 

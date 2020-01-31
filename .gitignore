@@ -25,3 +25,5 @@
 !gradle-wrapper.jar
 **/build/
 
+
+selenium/.kotlintest/

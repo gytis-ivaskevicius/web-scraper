@@ -1,4 +1,4 @@
-package com.gytis.webscrappper.models
+package com.gytis.selenium.models
 
 import java.lang.Exception
 

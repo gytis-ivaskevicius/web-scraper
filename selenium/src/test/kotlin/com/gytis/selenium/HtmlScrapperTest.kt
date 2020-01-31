@@ -1,18 +1,13 @@
-import com.gytis.webscrappper.models.Key
-import com.gytis.webscrappper.models.Selector
-import com.gytis.webscrappper.models.WebsiteTarget
-import com.gytis.webscrappper.scrappers.HtmlScrapper
-import com.gytis.webscrappper.scrappers.SeleniumScrapper
+package com.gytis.selenium
+
+import com.gytis.selenium.models.Key
+import com.gytis.selenium.models.Selector
+import com.gytis.selenium.models.WebsiteTarget
+import com.gytis.selenium.scrappers.HtmlScrapper
+import com.gytis.selenium.scrappers.SeleniumScrapper
 import io.kotlintest.data.forall
-import io.kotlintest.shouldBe
-import io.kotlintest.shouldNot
-import io.kotlintest.shouldNotBe
 import io.kotlintest.specs.StringSpec
 import io.kotlintest.tables.row
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.newFixedThreadPoolContext
-import java.util.ArrayList
 
 class HtmlScrapperTest : StringSpec({
     forall(

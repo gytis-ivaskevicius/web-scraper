@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version "1.3.61"
 }
@@ -9,11 +11,14 @@ repositories {
     mavenCentral()
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("org.seleniumhq.old:old-java:3.141.59")
-    implementation("org.seleniumhq.old:old-api:3.141.59")
-    implementation("org.seleniumhq.old:old-chrome-driver:3.141.59")
+    implementation("org.seleniumhq.selenium:selenium-chrome-driver:3.14.0")
+    implementation("org.seleniumhq.selenium:selenium-api:3.14.0")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jsoup:jsoup:1.12.1")
@@ -28,4 +33,8 @@ tasks {
     compileTestKotlin {
         kotlinOptions.jvmTarget = "1.8"
     }
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    freeCompilerArgs = listOf("-Xinline-classes")
 }
