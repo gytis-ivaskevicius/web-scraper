@@ -1,22 +1,17 @@
 package com.gytis.jsoupscrapper
 
 import com.google.common.io.Files
-import com.gytis.scrapper.Scrapper
 import com.gytis.scrapper.models.ElementNotFound
 import com.gytis.scrapper.models.OperationNotSupported
 import com.gytis.scrapper.models.Selector
 import io.kotlintest.Spec
-import io.kotlintest.data.forall
-import io.kotlintest.properties.assertAll
 import io.kotlintest.shouldBe
 import io.kotlintest.shouldThrow
 import io.kotlintest.specs.StringSpec
-import io.kotlintest.tables.row
 import org.mockserver.integration.ClientAndServer.startClientAndServer
 import org.mockserver.model.HttpRequest.request
 import org.mockserver.model.HttpResponse.response
 import java.io.File
-import java.lang.Exception
 import java.net.URL
 
 
