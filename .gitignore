@@ -24,5 +24,6 @@
 !gradle-wrapper.jar
 
 .gradle
+**/out/
 **/build/
 **/.kotlintest/
