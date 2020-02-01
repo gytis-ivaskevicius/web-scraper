@@ -1,19 +1,12 @@
 package com.gytis.scrapper
 
-import com.gytis.scrapper.models.Element
 import com.gytis.scrapper.models.Selector
+import java.net.URL
 
-class Scrapper {
-    fun click(selector: Selector) = selector.also {
+interface Scrapper {
+    fun getText(selector: Selector): String
+    fun getAttribute(selector: Selector, attribute: String): String
 
-    }
-
-    fun text(selector: Selector): String {
-
-        return ""
-    }
-
-    fun get(selector: Selector): Element? {
-        return null
-    }
+    fun click(selector: Selector): Selector
+    fun navigate(url: URL)
 }

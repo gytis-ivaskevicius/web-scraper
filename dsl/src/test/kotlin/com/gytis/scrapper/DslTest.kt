@@ -2,14 +2,19 @@ package com.gytis.scrapper
 
 import com.gytis.scrapper.models.Selector
 import io.kotlintest.specs.StringSpec
+import java.net.URL
 
 class DslTest : StringSpec({
+    val url = URL("https://google.com")
     val selector = Selector(".btn")
-    val a = scrapper {
+
+    val returnValue = ScrapperConfigImpl().open(url) {
         click(selector)
-        text(selector)
-        get(selector)
+        getText(selector)
+        getAttribute(selector, "href")
+        url
     }
 
+    returnValue.protocol
 })
 

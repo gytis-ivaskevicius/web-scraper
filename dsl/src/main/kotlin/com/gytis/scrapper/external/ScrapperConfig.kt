@@ -1,4 +1,4 @@
-package com.gytis.scrapper.models
+package com.gytis.scrapper.external
 
 import com.gytis.scrapper.Scrapper
 import java.net.URL
@@ -7,7 +7,5 @@ typealias ScrapperBlock<T> = Scrapper.() -> T
 
 interface ScrapperConfig {
 
-    fun <T> scrapper(url: URL, block: ScrapperBlock<T>): T {
-        return block(Scrapper())
-    }
+    fun <T> open(url: URL, block: ScrapperBlock<T>): T
 }
