@@ -24,7 +24,7 @@ allprojects {
     }
     configure<PitestPluginExtension> {
         testPlugin.set("KotlinTest")    // <-- Telling Pitest that we're using KotlinTest
-        targetClasses.set(listOf("com.gytis.jsoupscrapper.*"))
+        targetClasses.set(listOf("com.gytis.*"))
         avoidCallsTo.set(listOf("kotlin.jvm.internal"))
     }
 
