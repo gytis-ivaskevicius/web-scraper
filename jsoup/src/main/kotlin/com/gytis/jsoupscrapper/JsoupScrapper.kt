@@ -6,6 +6,7 @@ import com.gytis.scrapper.models.Identifier
 import com.gytis.scrapper.models.OperationNotSupported
 import com.gytis.scrapper.models.Selector
 import org.jsoup.nodes.Document
+import java.lang.IllegalArgumentException
 import java.net.URL
 
 class JsoupScrapper(private val document: Document) : Scrapper {
@@ -24,7 +25,13 @@ class JsoupScrapper(private val document: Document) : Scrapper {
     }
 
     override fun getAttribute(identifier: Identifier, attribute: String): String {
-        return getElement(identifier).attr(attribute)
+        return when (attribute.toLowerCase()) {
+            "href" -> "abs:$attribute"
+            else -> attribute
+        }
+            .let { getElement(identifier).attr(it) }
+            .ifEmpty { throw IllegalArgumentException() }
+
     }
 
     override fun click(identifier: Identifier): Identifier {

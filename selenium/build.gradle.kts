@@ -1,6 +1,6 @@
 
 dependencies {
-    implementation(project(":dsl"))
+    compileOnly(project(":dsl"))
     implementation("org.seleniumhq.selenium:selenium-chrome-driver:3.14.0")
     implementation("org.seleniumhq.selenium:selenium-api:3.14.0")
 
