@@ -1,9 +1,9 @@
 package com.gytis.jsoupscrapper
 
 import com.google.common.io.Files
-import com.gytis.scrapper.models.ElementNotFound
-import com.gytis.scrapper.models.OperationNotSupported
-import com.gytis.scrapper.models.Selector
+import com.gytis.scraper.models.ElementNotFound
+import com.gytis.scraper.models.OperationNotSupported
+import com.gytis.scraper.models.Selector
 import io.kotlintest.Spec
 import io.kotlintest.shouldBe
 import io.kotlintest.shouldThrow
@@ -16,7 +16,7 @@ import java.net.URL
 
 
 @Suppress("BlockingMethodInNonBlockingContext")
-class JsoupScrapperTest : StringSpec() {
+class JsoupScraperTest : StringSpec() {
     val website = URL("http://localhost:1080")
     var html = Files.asCharSource(File(javaClass.classLoader.getResource("test.html").toURI()), Charsets.UTF_8).read()
     val mockServer = startClientAndServer(1080).apply {

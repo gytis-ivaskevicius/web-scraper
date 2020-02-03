@@ -1,4 +1,4 @@
-package com.gytis.scrapper.models
+package com.gytis.scraper.models
 
 
 interface Identifier {

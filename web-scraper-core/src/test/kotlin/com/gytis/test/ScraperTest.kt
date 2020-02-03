@@ -1,8 +1,9 @@
 package com.gytis.test
 
 import com.gytis.jsoupscrapper.JsoupConfig
-import com.gytis.scrapper.models.ElementNotFound
-import com.gytis.scrapper.models.Selector
+import com.gytis.scraper.Scraper
+import com.gytis.scraper.models.ElementNotFound
+import com.gytis.scraper.models.Selector
 import com.gytis.selenium.SeleniumConfig
 import io.kotlintest.Spec
 import io.kotlintest.data.forall
@@ -15,7 +16,7 @@ import java.net.URL
 
 
 @Suppress("BlockingMethodInNonBlockingContext", "PrivatePropertyName")
-class ScrapperTest : StringSpec() {
+class ScraperTest : StringSpec() {
     private val website = URL("http://localhost:1080")
     private val mockServer = startMockServerWithTestHtml(1080)
 

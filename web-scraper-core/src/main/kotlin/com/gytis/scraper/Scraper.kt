@@ -1,9 +1,9 @@
-package com.gytis.scrapper
+package com.gytis.scraper
 
-import com.gytis.scrapper.models.Identifier
+import com.gytis.scraper.models.Identifier
 import java.net.URL
 
-interface Scrapper {
+interface Scraper {
     fun getText(identifier: Identifier): String
     fun getHref(identifier: Identifier): String
     fun getAttribute(identifier: Identifier, attribute: String): String

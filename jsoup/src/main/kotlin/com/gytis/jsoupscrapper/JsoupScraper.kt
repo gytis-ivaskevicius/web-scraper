@@ -1,16 +1,16 @@
 package com.gytis.jsoupscrapper
 
-import com.gytis.scrapper.Scrapper
-import com.gytis.scrapper.models.ElementNotFound
-import com.gytis.scrapper.models.Identifier
-import com.gytis.scrapper.models.OperationNotSupported
-import com.gytis.scrapper.models.Selector
+import com.gytis.scraper.Scraper
+import com.gytis.scraper.models.ElementNotFound
+import com.gytis.scraper.models.Identifier
+import com.gytis.scraper.models.OperationNotSupported
+import com.gytis.scraper.models.Selector
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.lang.IllegalArgumentException
 import java.net.URL
 
-class JsoupScrapper(private var document: Document, private val jsoupConfig: JsoupConfig) : Scrapper {
+class JsoupScraper(private var document: Document, private val jsoupConfig: JsoupConfig) : Scraper {
 
     private fun getElement(identifier: Identifier) = when (identifier) {
         is Selector -> document.selectFirst(identifier.value)
@@ -27,7 +27,7 @@ class JsoupScrapper(private var document: Document, private val jsoupConfig: Jso
 
     override fun getAttribute(identifier: Identifier, attribute: String): String {
         return when (attribute.toLowerCase()) {
-            "href" -> "abs:$attribute"
+            "href" -> "abs:href"
             else -> attribute
         }
             .let { getElement(identifier).attr(it) }

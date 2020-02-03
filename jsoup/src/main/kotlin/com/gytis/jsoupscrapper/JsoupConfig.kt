@@ -1,7 +1,7 @@
 package com.gytis.jsoupscrapper
 
-import com.gytis.scrapper.external.ScrapperBlock
-import com.gytis.scrapper.external.ScrapperConfig
+import com.gytis.scraper.external.ScraperBlock
+import com.gytis.scraper.external.ScraperConfig
 import org.jsoup.Jsoup
 import reactor.core.publisher.Mono
 import reactor.core.scheduler.Scheduler
@@ -9,14 +9,14 @@ import reactor.core.scheduler.Schedulers
 import java.net.URL
 
 @Suppress("MemberVisibilityCanBePrivate")
-class JsoupConfig(val timeoutMillis: Int = 5000, val scheduler: Scheduler = Schedulers.elastic()) : ScrapperConfig {
+class JsoupConfig(val timeoutMillis: Int = 10000, val scheduler: Scheduler = Schedulers.elastic()) : ScraperConfig {
 
-    override fun <T> open(url: URL, block: ScrapperBlock<T>): Mono<T> {
+    override fun <T> open(url: URL, block: ScraperBlock<T>): Mono<T> {
         return Mono.just(url)
             .subscribeOn(scheduler)
             .map {
                 val document = Jsoup.parse(url, timeoutMillis)
-                block(JsoupScrapper(document, this))
+                block(JsoupScraper(document, this))
             }
     }
 }

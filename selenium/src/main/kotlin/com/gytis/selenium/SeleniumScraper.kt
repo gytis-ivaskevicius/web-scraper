@@ -1,7 +1,7 @@
 package com.gytis.selenium
 
-import com.gytis.scrapper.Scrapper
-import com.gytis.scrapper.models.*
+import com.gytis.scraper.Scraper
+import com.gytis.scraper.models.*
 import org.openqa.selenium.NoSuchElementException
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebDriver
@@ -9,7 +9,7 @@ import java.lang.IllegalArgumentException
 import java.lang.IllegalStateException
 import java.net.URL
 
-class SeleniumScrapper(private val driver: RemoteWebDriver) : Scrapper {
+class SeleniumScraper(private val driver: RemoteWebDriver) : Scraper {
 
     private fun getElement(identifier: Identifier): WebElement = try {
         if (identifier.value.isEmpty()) {
