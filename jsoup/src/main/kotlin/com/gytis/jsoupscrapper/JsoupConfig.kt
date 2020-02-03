@@ -16,7 +16,7 @@ class JsoupConfig(val timeoutMillis: Int = 5000, val scheduler: Scheduler = Sche
             .subscribeOn(scheduler)
             .map {
                 val document = Jsoup.parse(url, timeoutMillis)
-                block(JsoupScrapper(document))
+                block(JsoupScrapper(document, this))
             }
     }
 }

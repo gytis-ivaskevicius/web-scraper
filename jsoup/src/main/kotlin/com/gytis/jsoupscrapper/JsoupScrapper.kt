@@ -5,11 +5,12 @@ import com.gytis.scrapper.models.ElementNotFound
 import com.gytis.scrapper.models.Identifier
 import com.gytis.scrapper.models.OperationNotSupported
 import com.gytis.scrapper.models.Selector
+import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.lang.IllegalArgumentException
 import java.net.URL
 
-class JsoupScrapper(private val document: Document) : Scrapper {
+class JsoupScrapper(private var document: Document, private val jsoupConfig: JsoupConfig) : Scrapper {
 
     private fun getElement(identifier: Identifier) = when (identifier) {
         is Selector -> document.selectFirst(identifier.value)
@@ -39,7 +40,7 @@ class JsoupScrapper(private val document: Document) : Scrapper {
     }
 
     override fun navigate(url: URL) {
-        throw OperationNotSupported()
+        document = Jsoup.parse(url, jsoupConfig.timeoutMillis)
     }
 
 }

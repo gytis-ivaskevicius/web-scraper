@@ -61,6 +61,15 @@ class ScrapperTest : StringSpec() {
                     shouldThrow<IllegalArgumentException> { getHref(selector) }
                 }.block()
             }
+
+            "${scraperConfig::class.simpleName}: Navigate test" {
+                val newUrl = URL("http://localhost:1080/test2.html")
+                scraperConfig.open(website) {
+                    navigate(newUrl)
+                    getText(P) shouldBe "Hello World2"
+                }.block()
+            }
+
         }
     }
 
