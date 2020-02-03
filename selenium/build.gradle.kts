@@ -1,8 +1,12 @@
+plugins {
+    kotlin("jvm")
+}
 
 dependencies {
+    implementation(platform(project(":bom")))
     compileOnly(project(":web-scraper-core"))
-    compileOnly("io.projectreactor:reactor-core:3.3.2.RELEASE")
+    compileOnly("io.projectreactor:reactor-core")
 
-    implementation("org.seleniumhq.selenium:selenium-java:3.4.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation(kotlin("stdlib-jdk8"))
+    implementation("org.seleniumhq.selenium:selenium-java")
 }

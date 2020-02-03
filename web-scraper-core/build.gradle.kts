@@ -1,10 +1,16 @@
+plugins {
+    kotlin("jvm")
+}
+
 dependencies {
+    implementation(platform(project(":bom")))
     implementation(kotlin("stdlib-jdk8"))
-    implementation("io.projectreactor:reactor-core:3.3.2.RELEASE")
+    implementation("io.projectreactor:reactor-core")
 
     testImplementation(project(":selenium"))
     testImplementation(project(":jsoup"))
 
-    testImplementation("org.seleniumhq.selenium:selenium-chrome-driver:3.14.0")
-    testImplementation("org.mock-server:mockserver-netty:5.8.1")
+    testImplementation("org.seleniumhq.selenium:selenium-chrome-driver")
+    testImplementation("org.mock-server:mockserver-netty")
+    testImplementation("io.kotlintest:kotlintest-runner-junit5")
 }
